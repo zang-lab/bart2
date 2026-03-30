@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bart2"
+version = "2.1"
+description = "Binding Analysis for Regulatory Transcription Factors"
+readme = "README.md"
+license = {text = "BSD"}
+authors = [
+    {name = "Zhenjia Wang", email = "zhenjia@virginia.edu"},
+    {name = "Wenjing Ma", email = "wm9tr@virginia.edu"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.0"
+dependencies = [
+    "setuptools",
+    "tables==3.9.2",
+    "blosc2==2.3.2",
+    "numpy==1.26.4",
+    "pandas==2.1.4",
+    "scipy==1.13.1",
+    "matplotlib==3.9.0",
+    "scikit-learn==1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/marvinquiet/bart2"
+
+[tool.setuptools]
+script-files = ["bin/bart2"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bart2*"]
+
+[tool.setuptools.package-data]
+bart2 = ["bart.conf", "hg38_library/*", "mm10_library/*"]
