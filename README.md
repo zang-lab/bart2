@@ -80,6 +80,9 @@ mm10:`https://myuva-my.sharepoint.com/:u:/g/personal/hz9fq_virginia_edu/IQCankHD
 #### Install BART
 
 ```shell
+git clone https://github.com/zanglab/bart2.git
+cd bart2
+
 pip install .
 ```
 
