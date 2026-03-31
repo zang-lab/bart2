@@ -3,7 +3,7 @@
 NOTES
 ===========
 
-This is a standalone repository for the local command line version of BART (v2.1). 
+This is a standalone repository for the local command line version of BART (v2.1.1). 
 
 For the source code of BART web interface, please refer to:
 - <a href="https://github.com/zanglab/BARTweb_frontend">**BARTweb Frontend**</a> for receiving users’ job submission requests and displaying job execution information and results. 
@@ -15,7 +15,7 @@ For the custom code for processing the data and generating the figures in the ma
 
 
 
-README for BART(v2.1)
+README for BART(v2.1.1)
 ===========
 
 
@@ -55,23 +55,15 @@ wget https://virginia.box.com/shared/static/bxdggnhp4bjz2l5h2zjlisnzp0ac7axf.gz 
 tar zxf mm10_library.tar.gz
 ```
 
-Then, modify the configuration file (bart2/bart.conf). For example, if you have the hg38_library (or mm10_library) in /abc/def/hg38_library (or /abc/def/mm10_library):
+##### Backup URLs for data library
 
-```shell
-[path]
-hg38_library_dir = /abc/def/
-mm10_library_dir = /abc/def/
-```
-
-#### Backup URLs for data library
-
-##### Zenodo
+###### Zenodo
 
 hg38:`https://zenodo.org/records/18854649/files/hg38_library.tar.gz?download=1`
 
 mm10:`https://zenodo.org/records/18854649/files/mm10_library.tar.gz?download=1`
 
-##### OneDrive
+###### OneDrive
 
 hg38:`https://myuva-my.sharepoint.com/:u:/g/personal/hz9fq_virginia_edu/IQB2IqcSn23wSaVIP9PoUS1iAVgA5x4T06AzsBcrQ0wLiDA?e=RPOgde`
 
@@ -79,22 +71,24 @@ mm10:`https://myuva-my.sharepoint.com/:u:/g/personal/hz9fq_virginia_edu/IQCankHD
 
 #### Install BART
 
+Clone the latest version of BART from github.
+
 ```shell
 git clone https://github.com/zanglab/bart2.git
 cd bart2
-
-pip install .
 ```
 
-To install a source distribution of BART, unpack the distribution tarball and go to the directory where you unpacked BART.
+Or, download a source distribution of BART and go to the directory where you unpacked BART.
 
 ```shell
-wget https://virginia.box.com/shared/static/jvwc097d7ca0oart6ka4ivonqi4qxkox.zip -O bart21.zip
-unzip bart21.zip
-cd bart2-master
+wget https://virginia.box.com/shared/static/jvwc097d7ca0oart6ka4ivonqi4qxkox.zip -O bart2.zip
+unzip bart2.zip
+cd bart2
 ```
 
-Modify the configure file (bart2/bart.conf). For example, if you have the hg38_library (or mm10_library) downloaded in this directory: /abc/def/hg38_library (or /abc/def/mm10_library), then the bart.conf file should read:
+Backup URLs for source code: `https://zenodo.org/records/19341963/files/bart2.zip?download=1`
+
+Then you have to modify the configure file (`bart2/bart.conf`). For example, if you have the hg38_library (or mm10_library) downloaded in this directory: `/abc/def/hg38_library` (or `/abc/def/mm10_library`), then the bart.conf file should read:
 
 ```shell
 [path]
@@ -106,16 +100,16 @@ mm10_library_dir = /abc/def/
 Install with root/administrator permission, or you have the <a href="https://docs.anaconda.com/anaconda/install/">Anaconda environment</a> prepared. By default, the script will install python library and executable codes globally.
 
 ```shell
-python setup.py install
+pip install .
 ```
 
 #### Local installation 
-If you want to install everything under a specific directory, for example, a directory as /path/to/bart2/, use the following commands.
+If you want to install everything under a specific directory, for example, a directory as `/path/to/bart2/`, use the following commands.
 
 ```shell
 mkdir -p /path/to/bart/lib/pythonX.Y/site-packages 
 export PYTHONPATH=/path/to/bart/lib/pythonX.Y/site-packages/:$PYTHONPATH 
-python setup.py install --prefix /path/to/bart 
+pip install . -t /path/to/bart
 export PATH=/path/to/bart/bin/:$PATH
 ```
 
